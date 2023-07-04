@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PrograVIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="NumReserva" />
+    </Key>
+    <Property Name="NumReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumPersonas" Type="int" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="20" />
+    <Property Name="Estado" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Function Name="sp_crearReserva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumPersonas" Type="int" Mode="In" />
+    <Parameter Name="Fecha" Type="nvarchar" Mode="In" />
+    <Parameter Name="Estado" Type="nchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="PrograVIModelStoreContainer">
+    <EntitySet Name="Reserva" EntityType="Self.Reserva" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

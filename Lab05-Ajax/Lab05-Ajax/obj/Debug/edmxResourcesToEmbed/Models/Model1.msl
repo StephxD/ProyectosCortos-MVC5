@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PrograVIModelStoreContainer" CdmEntityContainer="PrograVIEntities">
+    <EntitySetMapping Name="Reservas">
+      <EntityTypeMapping TypeName="PrograVIModel.Reserva">
+        <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="NumReserva" ColumnName="NumReserva" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NumPersonas" ColumnName="NumPersonas" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_crearReserva" FunctionName="PrograVIModel.Store.sp_crearReserva" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Reservas</h2>
+
+
+<input type="text" id="txtNombre" placeholder="Nombre" />
+<input type="number" id="txtNumber" placeholder="Numero de personas" />
+<input type="date" id="txtFecha" placeholder="Fecha de ingreso" />
+<input type="button" id="btnGuardar" value="Guardar" />
+
+
+<div id="resultado"></div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $("#btnGuardar").click(function () {
+                var vNombre = $("#txtNombre").val();
+                var vCantidad = $("#txtNumber").val();
+                var vFecha = $("#txtFecha").val();
+
+                if (isNaN(vCantidad))
+                    vCantidad = 0;
+                if (vNombre == '')
+                    vNombre = '*';
+
+                $.ajax({
+                    url: "@Url.Action("AgregarReserva")",
+                    type: 'POST',
+                    data: { pNombre: vNombre, pCantidad: vCantidad, pFecha: vFecha },
+                    success: function (response) {
+                        $("#resultado").hide("slow", function () {
+                            $(this).html(response);
+                            $(this).show("slow");
+                        });
+                    },
+                    error: function (jQxhr,textStatus,errorTrown) {
+                        alert(errorTrown);
+                    }
+                });
+            }
+            );
+        });
+    </script>
+}

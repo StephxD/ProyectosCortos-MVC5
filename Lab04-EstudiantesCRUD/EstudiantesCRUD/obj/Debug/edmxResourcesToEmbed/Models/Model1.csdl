@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PrograVIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="estudiante">
+    <Key>
+      <PropertyRef Name="idEstudiante" />
+    </Key>
+    <Property Name="idEstudiante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="genero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="celular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nacionalidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="PrograVIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="estudiantes" EntityType="Self.estudiante" />
+    <FunctionImport Name="sp_DeleteEstudiante">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertaEstudiante">
+      <Parameter Name="id" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="genero" Mode="In" Type="String" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="celula" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="nacionalidad" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SelectEstudiante" ReturnType="Collection(PrograVIModel.sp_SelectEstudiante_Result)" />
+    <FunctionImport Name="sp_SelectEstudiantePorID" ReturnType="Collection(PrograVIModel.sp_SelectEstudiantePorID_Result)">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateEstudiante">
+      <Parameter Name="idEstudiante" Mode="In" Type="Int32" />
+      <Parameter Name="id" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="genero" Mode="In" Type="String" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="celular" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="nacionalidad" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_SelectEstudiante_Result">
+    <Property Type="Int32" Name="idEstudiante" Nullable="false" />
+    <Property Type="String" Name="id" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="genero" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="direccion" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaNacimiento" Nullable="true" />
+    <Property Type="String" Name="celular" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="correo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="nacionalidad" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_SelectEstudiantePorID_Result">
+    <Property Type="Int32" Name="idEstudiante" Nullable="false" />
+    <Property Type="String" Name="id" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="genero" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="direccion" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaNacimiento" Nullable="true" />
+    <Property Type="String" Name="celular" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="correo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="nacionalidad" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

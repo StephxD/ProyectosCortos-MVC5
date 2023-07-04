@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PrograVIModelStoreContainer" CdmEntityContainer="PrograVIEntities">
+    <EntitySetMapping Name="Provincias">
+      <EntityTypeMapping TypeName="PrograVIModel.Provincia">
+        <MappingFragment StoreEntitySet="Provincias">
+          <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cantons">
+      <EntityTypeMapping TypeName="PrograVIModel.Canton">
+        <MappingFragment StoreEntitySet="Canton">
+          <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id_Provincia" ColumnName="id_Provincia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

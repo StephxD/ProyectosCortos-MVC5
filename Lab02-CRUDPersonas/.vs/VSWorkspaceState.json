@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Lab02-CRUDPersonas",
+    "\\Lab02-CRUDPersonas\\Controllers",
+    "\\Lab02-CRUDPersonas\\Models",
+    "\\Lab02-CRUDPersonas\\Scripts",
+    "\\Lab02-CRUDPersonas\\Views",
+    "\\Lab02-CRUDPersonas\\Views\\Home",
+    "\\Lab02-CRUDPersonas\\Views\\Personas",
+    "\\Lab02-CRUDPersonas\\Views\\Shared"
+  ],
+  "SelectedNode": "\\Lab02-CRUDPersonas\\Views\\Shared\\_Layout.cshtml",
+  "PreviewInSolutionExplorer": false
+}

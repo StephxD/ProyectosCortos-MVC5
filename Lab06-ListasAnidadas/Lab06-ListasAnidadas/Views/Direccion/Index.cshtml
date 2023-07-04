@@ -1,0 +1,50 @@
+﻿@model Lab06_ListasAnidadas.Models.ProvinciaCantonViewModel
+@{
+    ViewBag.Title = "Direcciones";
+}
+
+<h2>Direcciones</h2>
+</br>
+</br>
+
+<div class="form-group">
+    @if (ViewBag.ProvinciasList != null)
+    {
+                @Html.DropDownListFor(Model => Model.idProvincia,
+    ViewBag.ProvinciasList as SelectList,
+    "-- Seleccione una Provincia --", new { @class = "form-control" })
+    }
+
+
+
+
+</div>
+<div>
+    @Html.DropDownListFor(model => model.idCanton,
+    new SelectList(" "),
+    "--seleccione un canton--",
+    new {@class="form-control"})
+
+</div>
+@section scripts{
+    <script>
+        
+        $(document).ready(function () {
+            $("#idProvincia").change(function () {
+                $.get("/Direccion/GetCantones",
+                    { pIdProvincia: $("#idProvincia").val() },
+                    function (resultado) {
+                        $("#idCanton").empty();
+                        $("#idCanton").append("<option value ='0'> Seleccione un canton </option>");
+                            $.each(resultado, function (index, row) {
+                            $("#idCanton").append("<option value = '" + row.idCanton + "'>" + row.Nombre + "</option>");
+                        });
+                    }
+                )
+
+            });
+        });
+        
+        </script>
+    }
+

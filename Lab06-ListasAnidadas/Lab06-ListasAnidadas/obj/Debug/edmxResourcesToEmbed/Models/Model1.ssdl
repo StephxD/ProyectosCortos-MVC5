@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PrograVIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PrograVI.dbo.Canton' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Canton">
+    <Key>
+      <PropertyRef Name="idCanton" />
+    </Key>
+    <Property Name="idCanton" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" />
+    <Property Name="id_Provincia" Type="int" />
+  </EntityType>
+  <EntityType Name="Provincias">
+    <Key>
+      <PropertyRef Name="idProvincia" />
+    </Key>
+    <Property Name="idProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityContainer Name="PrograVIModelStoreContainer">
+    <EntitySet Name="Provincias" EntityType="Self.Provincias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Canton" EntityType="Self.Canton" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Canton].[idCanton] AS [idCanton], 
+    [Canton].[Nombre] AS [Nombre], 
+    [Canton].[id_Provincia] AS [id_Provincia]
+    FROM [dbo].[Canton] AS [Canton]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
